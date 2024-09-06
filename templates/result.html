@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Recommendation Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Recommendation Result</h1>
+        {% if eligible %}
+            <h2>You are eligible for the following loan products:</h2>
+            <ul>
+                {% for product in products %}
+                    <li>
+                        <strong>{{ product.Product_Name }}</strong><br>
+                        Interest Rate: {{ product.Interest_Rate }}%<br>
+                        Loan Term: {{ product.Loan_Term_Years }} years<br>
+                        Loan Amount Range: ₹{{ product.Min_Loan_Amount }} - ₹{{ product.Max_Loan_Amount }}<br>
+                        CIBIL Score Range: {{ product.Min_CIBIL }} - {{ product.Max_CIBIL }}<br>
+                        Annual Income Range: ₹{{ product.Min_Income }} - ₹{{ product.Max_Income }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2>Sorry, you are not eligible for any loan products at this time.</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+Flask
+Flask-Mail
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+pymongo
+python-dotenv
+joblib
